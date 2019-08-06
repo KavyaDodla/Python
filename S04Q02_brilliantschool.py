@@ -3,12 +3,9 @@ calculate percentages of marks as per user input and give the classes accordingl
 """
 def prompt():
     """
-    prompt user for marks scored in english,science and mathematics
-    :return:
+    import sys and use system argument variables rather than using input
     """
-    english1=int(input("what are the marks scored by you in english"))
-    science1=int(input("what are the marks scored by you in science"))
-    mathematics=int(input("what are the marks scored by you in mathematics"))
+    english1, science1, mathematics=int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3])
     return english1,science1,mathematics
 
 def calculate_percentages():
