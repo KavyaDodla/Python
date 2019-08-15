@@ -1,3 +1,6 @@
+"""
+print first 12 even fibonacci numbers starting with 1,1
+"""
 
 def logic():
     a = 1
