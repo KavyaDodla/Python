@@ -1,10 +1,20 @@
 
 import random
+from datetime import date
 
 
 def pass_code():
-    code=range(1,26)
-    employee_code=random.choice(code)
+    day=str(date.today())
+    current_date=day.split("-")
+    if int(current_date[-1])<=25:
+        code=range(1,26)
+        employee_code=random.choice(code)
+    elif int(current_date[-1])>25 and int(current_date[-1])!=28 and int(current_date[-1])>28:
+        code=range(0,(int(current_date[-1])+1))
+        employee_code = random.choice(code)
+    else:
+        code=range(0,29)
+        employee_code = random.choice(code)
     return employee_code
 
 def output():
@@ -44,18 +54,3 @@ def output():
 
 # main starts from here
 output()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
