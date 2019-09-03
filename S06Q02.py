@@ -10,7 +10,7 @@ Collect the runs scored for each ball faced by the batsman.
 def data():
     runs_list=[]
     while True:
-        run=(input("Please enter the runs scored by Dhoni for each ball. If it is no run enter dot. If batsman is out just click enter"))
+        run=(input("Please enter the runs scored by Player for each ball. If it is no run enter dot. If batsman is out just click enter"))
         if run:
             runs_list.append(run)
         else:
@@ -18,9 +18,7 @@ def data():
             break
     return(runs_list)
 
-def result():
-    runs_list=data()
-    #calculate total runs scored
+def total(runs_list):
     total_runs=0
     for i in runs_list:
         if i==".":
@@ -28,8 +26,11 @@ def result():
         else:
             i=int(i)
             total_runs=total_runs+i
-    print("Total runs scored by Dhoni are",total_runs)
-    #Number of balls faced
+    print("Total runs scored by Player are",total_runs)
+    return total_runs
+
+
+def balls(runs_list):
     balls_faced=0
     for i in runs_list:
         if i == ".":
@@ -38,20 +39,21 @@ def result():
         else:
             i=int(i)
             balls_faced+=1
-    print("Total balls faced by Dhoni:", balls_faced)
+    print("Total balls faced by Player:", balls_faced)
+    return balls_faced
 
-    #Strike rate
+def strike_rate(total_runs,balls_faced):
     strike_rate=total_runs/balls_faced
-    print("The strike rate of Dhoni for this match is:",strike_rate)
+    print("The strike rate of player for this match is:",strike_rate)
 
-    #number of  balls wasted
+def balls_wasted(runs_list):
     dots = 0
     for i in runs_list:
-        if i=="." or i=="0"
+        if i=="." or i=="0":
             dots+=1
-    print("The number of balls wasted by Dhoni are",dots)
+    print("The number of balls wasted by Player are",dots)
 
-    #Boundaries
+def Boundaries(runs_list):
     fours=0
     sixes=0
     for i in runs_list:
@@ -63,8 +65,24 @@ def result():
                 fours+=1
             if i==6:
                 sixes+=1
-    print("Dhoni scored",fours,"fours and",sixes,"sixes")
+    print("Player scored",fours,"fours and",sixes,"sixes")
     Boundaries=fours+sixes
-    print("Dhoni scored",Boundaries,"boundaries in this match")
+    print("Player scored",Boundaries,"boundaries in this match")
+def main():
+    runs_list=data()
+    total_runs=total(runs_list)
+    balls_faced=balls(runs_list)
+    strike_rate(total_runs,balls_faced)
+    balls_wasted(runs_list)
+    Boundaries(runs_list)
 #main starts here
-result()
+main()
+
+
+
+
+
+
+
+
+
