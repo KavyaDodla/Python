@@ -24,3 +24,4 @@ def main():
     first_name,last_name=get_data()
     initials(first_name,last_name)
 main()
+
