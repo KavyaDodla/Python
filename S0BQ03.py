@@ -2,8 +2,7 @@
 #commiting both programs code in this commit
 import sys
 
-def dsum():
-    number=sys.argv[1]
+def dsum(number):
     sum=0
     for i in number:
         sum=sum+int(i)
@@ -11,7 +10,10 @@ def dsum():
     return sum
 
 if __name__=="__main__":
-    dsum()
+    number = sys.argv[1]
+    dsum(number)
+
+
 
 # this  is the progrma for jackpot .py
 import sys
@@ -20,11 +22,11 @@ from random import randint
 
 def get_number():
     if len(sys.argv)==1:
-        number=int(input("Please enter the 5 digit number->"))
+        number=input("Please enter the 5 digit number->")
     else:
         number=sys.argv[1]
         print(number)
-        return number
+    return number
 
 def winner(sum,number):
     random_number=randint(1,50)
@@ -33,14 +35,12 @@ def winner(sum,number):
     else:
         print("Better lucknext time:",random_number)
 
-
-
-
 def main():
     number=get_number()
-    sum=dsum()
+    sum=dsum(number)
     winner(sum,number)
 
 main()
+
 
 
